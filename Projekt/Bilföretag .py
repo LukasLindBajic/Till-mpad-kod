@@ -35,7 +35,7 @@ def remove_product(products, id):
         return f"Produkten med id {id} hittades inte"
 
 def view_product(products, id):
-    product = next((product for product in products if product["id"] == id)) #Hittar en produkt med matchande ID.
+    product = products[id] #Hittar en produkt med matchande ID.
     if product:
         return (f"Visar produkt: {product['name']} {product['color']} {product['price']} "f"{product['mileage']} {product['condition']}") #Returnar produktens information som en formaterad sträng.
     return "Produkten hittas inte"
@@ -53,9 +53,10 @@ def view_products(products):
     print("\n--- Meny ---")
     print(f"{'#':<3} {'ID':<5} {'Namn':<20} {'Färg':<10} {'Pris':<10} {'Mil':<8} {'Skick':<15}") #Skriver ut rubriker för tabellen och justerar texten för en snygg layout.
     print("-" * 70) #Skriver en avgränsningslinje under rubrikerna.
+    
     for index, product in enumerate(products, 1): #Loopar igenom listan av produkter och ger varje produkt ett visningsindex som börjar från 1.
-
         print(f"{index:<3} {product['id']:<5} {product['name']:<20} {product['color']:<10} "f"{locale.currency(product['price'], grouping=True):<10} {product['mileage']:<8} {product['condition']:<15}")
+
 
 def add_product(products, name, color, price, mileage, condition):
     max_id = max([p['id'] for p in products], default=0) 
@@ -80,7 +81,8 @@ products = load_data(filename)
 while True:
     try:
         os.system('cls' if os.name == 'nt' else 'clear')
-        print(view_products(products))
+        
+        view_products(products)
 
 
         print("\n--- OPTIONS ---")
