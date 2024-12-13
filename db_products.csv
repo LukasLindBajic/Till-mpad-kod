@@ -1,0 +1,12 @@
+id,name,color,price,mileage,condition
+1,Volvo XC60,black,329.0,6500.0,Mycket bra
+2,Tesla Model 3,white,459.0,3200.0,Nästan ny
+3,Volkswagen Golf,blue,179.6,8000.0,Bra
+4,BMW 320i,grey,259.589,4700.0,Mycket bra
+5,Toyota Corolla,red,179.022,9800.0,Bra
+6,Kia Ceed,Blue,150.0,12000.0,sliten
+7,Ford Focus,white,129.067,15300.0,Sliten
+8,Mercedes-Benz E200,black,525.467,2300.0,Perfekt
+9,Nissan Qashqai,grey,199.748,7600.0,Mycket bra
+10,BMW M220i,Svart,390.678,2908.0,Ny
+11,BMW 320d touring ,black,249.453,6400.0,Ny
