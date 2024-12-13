@@ -20,24 +20,24 @@ def load_data(filename):
 
 def save_data(filename, products):
     with open(filename, mode='w', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=["id", "name", "color", "price", "mileage", "condition"]) 
-        writer.writeheader() 
-        writer.writerows(products) 
+        writer = csv.DictWriter(file, fieldnames=["id", "name", "color", "price", "mileage", "condition"]) #Skapar en skrivare för att skriva ordböcker som rader i CSV-format.
+        writer.writeheader() #Skriver kolumnnamnen till CSV-filen.
+        writer.writerows(products) #Skriver alla produkter till filen.
     print(f"Förändringar har sparats i {filename}") 
 
 def remove_product(products, id):
-    temp_product = next((product for product in products if product["id"] == id)) 
+    temp_product = next((product for product in products if product["id"] == id)) #Söker efter en produkt med matchande ID.
     if temp_product: 
         products.remove(temp_product) 
-        for index, product in enumerate(products, 1): product['id'] = index 
+        for index, product in enumerate(products, 1): product['id'] = index #Uppdaterar ID värden så alla produkter får ett nytt ID
         return f"Produkt: {id} {temp_product['name']} togs bort"
     else:
         return f"Produkten med id {id} hittades inte"
 
 def view_product(products, id):
-    product = next((product for product in products if product["id"] == id)) 
+    product = next((product for product in products if product["id"] == id)) #Hittar en produkt med matchande ID.
     if product:
-        return (f"Visar produkt: {product['name']} {product['color']} {product['price']} "f"{product['mileage']} {product['condition']}") 
+        return (f"Visar produkt: {product['name']} {product['color']} {product['price']} "f"{product['mileage']} {product['condition']}") #Returnar produktens information som en formaterad sträng.
     return "Produkten hittas inte"
 
 def edit_product(product, name, color, price, mileage, condition):
@@ -73,7 +73,8 @@ def add_product(products, name, color, price, mileage, condition):
 locale.setlocale(locale.LC_ALL, 'sv_SE.UTF-8') 
 os.system('cls' if os.name == 'nt' else 'clear') 
 
-filename = 'Projekt/db_products.csv'
+
+filename = 'db_products.csv'
 products = load_data(filename)
 
 while True:
@@ -99,7 +100,7 @@ while True:
                 print("Produkten hittas inte")
 
         elif choice == "2":
-            save_data(filename, products)
+            save_data(filename, products) 
         
         elif choice == "6":
             print("avsluta programmet")

@@ -32,7 +32,7 @@ def load_data(filename):
     
 def remove_product(products, id):
     temp_product = None
-
+    
     for product in products:
         if product["id"] == id:
             temp_product = product
