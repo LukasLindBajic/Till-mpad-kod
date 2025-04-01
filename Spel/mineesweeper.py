@@ -78,7 +78,7 @@ class Minesweeper:
         self.height = height
         self.mines = mines
         self.cell_size = 30
-        self.board = [[0 for _ in range(width)] for _ in range(height)] #
+        self.board = [[0 for _ in range(width)] for _ in range(height)] 
         self.visible = [[False for _ in range(width)] for _ in range(height)] #Håller koll på vilka ruter som har blivit revelade inom brädan 
         self.flagged = [[False for _ in range(width)] for _ in range(height)] #Håller koll på vilka ruter som har blivit flaggade inom brädan 
         self.score = 0
